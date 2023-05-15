@@ -15,7 +15,6 @@ export interface BlockGroup {
 }
 
 export interface PropsProviderProps {
-  children?: React.ReactNode;
   height: string;
   fontList?: { value: string; label: string }[];
   onAddCollection?: (payload: CollectedBlock) => void;
@@ -56,7 +55,6 @@ export const EditorPropsContext = React.createContext<
     mergeTagGenerate: Required<PropsProviderProps['mergeTagGenerate']>;
   }
 >({
-  children: null,
   height: '100vh',
   fontList: [],
   onAddCollection: undefined,

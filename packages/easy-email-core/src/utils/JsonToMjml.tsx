@@ -4,18 +4,17 @@ import { BlockManager } from '@core/utils';
 import { JsonToMjmlOption } from './isProductionMode';
 import React, { useContext } from 'react';
 import { IBlockData } from '@core/typings';
-import { unescape } from 'he';
+import { unescape } from 'he'
 
 type EmailRenderProps = {
-  children?: React.ReactNode;
+  mode: 'production' | 'testing';
   context?: IBlockData;
   dataSource?: Record<string, any>;
-  mode: 'production' | 'testing';
 };
 
 const EmailRenderContext = React.createContext<EmailRenderProps>({} as any);
 
-const EmailRenderProvider: React.FC<EmailRenderProps> = props => {
+const EmailRenderProvider: React.FC<EmailRenderProps> = (props) => {
   return (
     <EmailRenderContext.Provider value={props}>
       {props.children}
@@ -37,8 +36,8 @@ export function JsonToMjml(options: JsonToMjmlOption): string {
         context={options.context}
       >
         {block.render(options)}
-      </EmailRenderProvider>,
-    ),
+      </EmailRenderProvider>
+    )
   );
   if (beautify) {
     return html(mjmlString, { indent_size: 2 });

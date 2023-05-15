@@ -87,7 +87,8 @@ export const EmailEditor = () => {
             <MobileEmailPreview />
           </TabPane>
         </Tabs>
-        <>{fixedContainer}</>
+
+        {fixedContainer}
       </div>
     ),
     [activeTab, containerHeight, fixedContainer, onBeforeChangeTab, onChangeTab]
